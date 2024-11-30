@@ -1,0 +1,81 @@
+ assignnment3
+2)
+mport java.util.ArrayList;
+
+public class Utility {
+    public static Integer max(ArrayList<Integer> list) {
+        if (list == null || list.size() == 0) {
+            return null;
+        }
+
+        Integer max = list.get(0);
+        for (Integer num : list) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max;
+    }
+}
+3)import java.util.ArrayList;
+import java.util.Collections;
+
+public class Utility {
+    public static void sort(ArrayList<Integer> list) {
+        if (list == null) {
+            return; // No action needed if the list is null
+        }
+        
+        Collections.sort(list);
+    }
+}
+6)
+public class GroceryItemOrder {
+    private String name;
+    private int quantity;
+    private double pricePerUnit;
+
+    // Constructor
+    public GroceryItemOrder(String name, double pricePerUnit) {
+        this.name = name;
+        this.pricePerUnit = pricePerUnit;
+        this.quantity = 1; // Default quantity is set to 1
+    }
+
+    // Method to get the total cost of this item order
+    public double getCost() {
+        return quantity * pricePerUnit;
+    }
+
+    // Method to set the quantity of this item
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+}
+import java.util.ArrayList;
+
+public class GroceryList {
+    private ArrayList<GroceryItemOrder> items;
+    private static final int MAX_ITEMS = 10; // Maximum number of items allowed in the list
+
+    // Constructor
+    public GroceryList() {
+        items = new ArrayList<>();
+    }
+
+    // Method to add an item to the grocery list if there's space
+    public void add(GroceryItemOrder item) {
+        if (items.size() < MAX_ITEMS) {
+            items.add(item);
+        }
+    }
+
+    // Method to calculate the total cost of all items in the list
+    public double getTotalCost() {
+        double totalCost = 0.0;
+        for (GroceryItemOrder item : items) {
+            totalCost += item.getCost();
+        }
+        return totalCost;
+    }
+}
